@@ -14,8 +14,8 @@ namespace queueing_theory
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            task1grid.ColumnCount = Convert.ToInt32(numericUpDown1.Value);
-            task1grid.RowCount = Convert.ToInt32(numericUpDown1.Value);
+            task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
+            task1grid.RowCount = System.Convert.ToInt32(numericUpDown1.Value);
         }
         private void зберегтиЗадачуВФайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace queueing_theory
             {
                 for (int j = 0; j < dataGrid.ColumnCount; j++)
                 {
-                    result += Convert.ToDouble(dataGrid[j, i].Value) + " ";
+                    result += System.Convert.ToDouble(dataGrid[j, i].Value) + " ";
                 }
                 result += "\n";
             }
@@ -88,7 +88,7 @@ namespace queueing_theory
                 double summ = 0;
                 for (int j = 0; j < task1grid.ColumnCount; j++)
                 {
-                    summ += Convert.ToDouble(task1grid[j, i].Value.ToString().Replace('.', ','));
+                    summ += System.Convert.ToDouble(task1grid[j, i].Value.ToString().Replace('.', ','));
                 }
                 if (Math.Abs(summ - 1) > 0.000000001)
                 {
@@ -123,7 +123,7 @@ namespace queueing_theory
                 {
                     for (int j = 0; j < dimension; j++)
                     {
-                        matrix[j, i] = Convert.ToDouble(task1grid[i, j].Value);
+                        matrix[j, i] = System.Convert.ToDouble(task1grid[i, j].Value);
                     }
                 }
                 answers.Add(new double[dimension]); // після першого кроку
