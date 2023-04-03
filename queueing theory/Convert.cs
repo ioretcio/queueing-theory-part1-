@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using System.Globalization;
 namespace queueing_theory
 {
     class Convert
     {
-        public static double toDouble(string source)
+        public static double toDouble(object value)
         {
-            try { return Convert.toDouble(source.Replace('.', ',')); }
-            catch { return Convert.toDouble(source.Replace(',', '.')); }
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            return double.Parse(value.ToString(), nfi);
         }
     }
 }

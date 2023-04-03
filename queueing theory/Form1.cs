@@ -12,7 +12,7 @@ namespace queueing_theory
             InitializeComponent();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
             task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
             task1grid.RowCount = System.Convert.ToInt32(numericUpDown1.Value);
@@ -39,7 +39,7 @@ namespace queueing_theory
             {
                 for (int j = 0; j < dataGrid.ColumnCount; j++)
                 {
-                    result += System.Convert.ToDouble(dataGrid[j, i].Value) + " ";
+                    result +=Convert.toDouble(dataGrid[j, i].Value) + " ";
                 }
                 result += "\n";
             }
@@ -88,7 +88,7 @@ namespace queueing_theory
                 double summ = 0;
                 for (int j = 0; j < task1grid.ColumnCount; j++)
                 {
-                    summ += System.Convert.ToDouble(task1grid[j, i].Value.ToString().Replace('.', ','));
+                    summ +=Convert.toDouble(task1grid[j, i].Value.ToString().Replace(',', '.'));
                 }
                 if (Math.Abs(summ - 1) > 0.000000001)
                 {
@@ -110,20 +110,21 @@ namespace queueing_theory
             MessageBox.Show("В матриці присутні не одиничні рядки");
             return !message;
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             if (checkGrid())
             {
                 List<double[]> answers = new List<double[]>();
                 int k = (int)numericUpDown2.Value;
                 int dimension = (int)task1grid.RowCount;
-                 
+
                 double[,] matrix = new double[dimension, dimension];
                 for (int i = 0; i < dimension; i++)
                 {
                     for (int j = 0; j < dimension; j++)
                     {
-                        matrix[j, i] = System.Convert.ToDouble(task1grid[i, j].Value);
+                        matrix[j, i] = Convert.toDouble(task1grid[i, j].Value);
                     }
                 }
                 answers.Add(new double[dimension]); // після першого кроку
