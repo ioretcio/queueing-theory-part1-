@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.task1grid = new System.Windows.Forms.DataGridView();
@@ -42,6 +42,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.task1grid)).BeginInit();
@@ -102,8 +103,8 @@
             this.task1grid.Name = "task1grid";
             this.task1grid.RowHeadersVisible = false;
             this.task1grid.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task1grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task1grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.task1grid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.task1grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.task1grid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -134,6 +135,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.groupBox2);
@@ -153,7 +155,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(319, 407);
+            this.groupBox4.Size = new System.Drawing.Size(319, 360);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Хід виконання:";
@@ -168,7 +170,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(3, 16);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(313, 388);
+            this.richTextBox1.Size = new System.Drawing.Size(313, 341);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
@@ -249,10 +251,21 @@
             // 
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 113);
+            this.panel2.Location = new System.Drawing.Point(0, 160);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(319, 407);
+            this.panel2.Size = new System.Drawing.Size(319, 360);
             this.panel2.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(319, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Зберегти в файл";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -295,6 +308,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

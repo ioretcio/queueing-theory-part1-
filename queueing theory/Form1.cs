@@ -11,27 +11,15 @@ namespace queueing_theory
         {
             InitializeComponent();
         }
-
+        //косметика
         private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
             task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
             task1grid.RowCount = System.Convert.ToInt32(numericUpDown1.Value);
         }
-        private void зберегтиЗадачуВФайлToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string fileContent = getGridText(task1grid);
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(DateTime.Now.ToString().Replace(':', ' ') + ".txt", false, System.Text.Encoding.Default))
-                {
-                    sw.Write(fileContent);
-                }
-            }
-            catch (Exception exe)
-            {
-                MessageBox.Show(exe.Message);
-            }
-        }
+
+
+        //зчитування даних з таблиці
         string getGridText(DataGridView dataGrid)
         {
             string result = "";
@@ -45,6 +33,9 @@ namespace queueing_theory
             }
             return result;
         }
+
+
+
         void putDataToGrid(string data, DataGridView dataGrid)
         {
             string[] rows = data.Split('\n');
@@ -63,6 +54,9 @@ namespace queueing_theory
                 }
             }
         }
+
+
+        //перевірка на повноту вхідних даних, сума ймовірностей по кожному вузлу має бути 1
         bool checkGrid()
         {
             bool message=false;
@@ -73,7 +67,7 @@ namespace queueing_theory
                 {
                     summ +=Convert.toDouble(task1grid[j, i].Value.ToString().Replace(',', '.'));
                 }
-                if (Math.Abs(summ - 1) > 0.000000001)
+                if (Math.Abs(summ - 1) > 0.000000001)  //з урахуванням похибки обчислення
                 {
                     for (int j = 0; j < task1grid.ColumnCount; j++)
                     {
@@ -115,7 +109,7 @@ namespace queueing_theory
                 {
                     answers[0][i] = matrix[0, i];
                 }
-                for (int i = 1; i < k; i++)
+                for (int i = 1; i < k; i++) // к - кількість ітерацій
                 {
                     answers.Add(new double[dimension]);
                     for (int j = 0; j < dimension; j++)
@@ -155,6 +149,22 @@ namespace queueing_theory
             }
             numericUpDown1.Value = task1grid.RowCount;
             numericUpDown2.Value = task1grid.RowCount;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string fileContent = getGridText(task1grid);
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(DateTime.Now.ToString().Replace(':', ' ') + ".txt", false, System.Text.Encoding.Default))
+                {
+                    sw.Write(fileContent);
+                }
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
         }
     }
 }
