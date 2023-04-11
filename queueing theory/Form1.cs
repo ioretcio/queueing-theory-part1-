@@ -11,7 +11,7 @@ namespace queueing_theory
         {
             InitializeComponent();
         }
-        //косметика
+        //косметика нова
         private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
             task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
@@ -101,13 +101,13 @@ namespace queueing_theory
                 {
                     for (int j = 0; j < dimension; j++)
                     {
-                        matrix[j, i] = Convert.toDouble(task1grid[i, j].Value);
+                        matrix[j, i] = Convert.toDouble(task1grid[i, j].Value); //зчитування даних з матриці вхідної
                     }
                 }
                 answers.Add(new double[dimension]); // після першого кроку
                 for (int i = 0; i < dimension; i++)
                 {
-                    answers[0][i] = matrix[0, i];
+                    answers[0][i] = matrix[0, i]; //на першій ітерації ймовірності станів дорівнюють вхідній матриці
                 }
                 for (int i = 1; i < k; i++) // к - кількість ітерацій
                 {
@@ -116,9 +116,9 @@ namespace queueing_theory
                     {
                         for (int l = 0; l < dimension; l++)
                         {
-                            answers[i][j] += answers[i - 1][l] * matrix[l, j];
+                            answers[i][j] += answers[i - 1][l] * matrix[l, j]; //просто перемножується дані попередніх відповідей та акумулюємо у стан даного вузла
                         }
-                        answers[i][j] = Math.Round(answers[i][j], 3);
+                        answers[i][j] = Math.Round(answers[i][j], 5); //для виведення
                     }
                 }
                 richTextBox1.Text = "";

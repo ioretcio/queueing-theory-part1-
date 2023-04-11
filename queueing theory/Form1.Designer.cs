@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.task1grid = new System.Windows.Forms.DataGridView();
@@ -103,8 +103,8 @@
             this.task1grid.Name = "task1grid";
             this.task1grid.RowHeadersVisible = false;
             this.task1grid.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task1grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task1grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.task1grid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.task1grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.task1grid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -155,7 +155,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(319, 360);
+            this.groupBox4.Size = new System.Drawing.Size(319, 384);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Хід виконання:";
@@ -170,7 +170,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(3, 16);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(313, 341);
+            this.richTextBox1.Size = new System.Drawing.Size(313, 365);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
@@ -251,9 +251,9 @@
             // 
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 160);
+            this.panel2.Location = new System.Drawing.Point(0, 136);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(319, 360);
+            this.panel2.Size = new System.Drawing.Size(319, 384);
             this.panel2.TabIndex = 10;
             // 
             // button2

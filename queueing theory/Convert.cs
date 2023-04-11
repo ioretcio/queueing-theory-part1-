@@ -4,7 +4,7 @@ namespace queueing_theory
 {
     class Convert
     {
-        public static double toDouble(object value)
+        public static double toDouble(object value) //універсальний конвертер
         {
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
