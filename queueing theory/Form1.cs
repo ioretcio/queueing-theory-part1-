@@ -124,12 +124,12 @@ namespace queueing_theory
                 richTextBox1.Text = "";
                 for (int i = 0; i < k; i++)
                 {
-                    richTextBox1.Text += "Ймовірності після кроку " + (i + 1).ToString() + ":\n";
+                    richTextBox1.Text += "Ймовірності після кроку " + (i).ToString() + ":\n";
                     for (int z = 0; z < dimension; z++)
                     {
-                        richTextBox1.Text += answers[i][z].ToString() + "    ";
+                        richTextBox1.Text += $"P{z}({i})={ answers[i][z].ToString()}\n";
                     }
-                    richTextBox1.Text += "\n\n";
+                    richTextBox1.Text += "\n";
                 }
             }
         }
