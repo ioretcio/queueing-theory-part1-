@@ -11,7 +11,7 @@ namespace queueing_theory
         {
             InitializeComponent();
         }
-        //косметика нова
+        //косметика нова ліза супер дєвочка
         private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
             task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
