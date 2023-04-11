@@ -63,23 +63,6 @@ namespace queueing_theory
                 }
             }
         }
-        private void відкритиМатричнеПоданняЗадачіToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var fileStream = openFileDialog.OpenFile();
-                string alldata = "";
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    alldata = reader.ReadToEnd();
-                    putDataToGrid(alldata, task1grid);
-                }
-            }
-            numericUpDown1.Value = task1grid.RowCount;
-            numericUpDown2.Value = task1grid.RowCount;
-        }
         bool checkGrid()
         {
             bool message=false;
@@ -155,6 +138,23 @@ namespace queueing_theory
                     richTextBox1.Text += "\n";
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var fileStream = openFileDialog.OpenFile();
+                string alldata = "";
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    alldata = reader.ReadToEnd();
+                    putDataToGrid(alldata, task1grid);
+                }
+            }
+            numericUpDown1.Value = task1grid.RowCount;
+            numericUpDown2.Value = task1grid.RowCount;
         }
     }
 }
