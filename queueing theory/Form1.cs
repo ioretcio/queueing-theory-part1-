@@ -135,7 +135,7 @@ namespace queueing_theory
                     {
                         richTextBox1.Text += answers[i][z].ToString() + "    ";
                     }
-                    richTextBox1.Text += "\n";
+                    richTextBox1.Text += "\n\n";
                 }
             }
         }

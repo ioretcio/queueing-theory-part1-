@@ -8,7 +8,7 @@ namespace queueing_theory
         {
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
-            return double.Parse(value.ToString(), nfi);
+            return double.Parse(value.ToString().Replace(',','.'), nfi); ;
         }
     }
 }
