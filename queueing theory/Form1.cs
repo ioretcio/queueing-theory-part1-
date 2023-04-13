@@ -11,7 +11,7 @@ namespace queueing_theory
         {
             InitializeComponent();
         }
-        //косметика нова ліза супер дєвочка
+        //косметика
         private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
         {
             task1grid.ColumnCount = System.Convert.ToInt32(numericUpDown1.Value);
@@ -88,46 +88,56 @@ namespace queueing_theory
             return !message;
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void startCalculation(object sender, EventArgs e)
         {
             if (checkGrid())
             {
-                List<double[]> answers = new List<double[]>();
-                int k = (int)numericUpDown2.Value;
-                int dimension = (int)task1grid.RowCount;
+                List<double[]> p_small = new List<double[]>();
+                int countOfEtaps = (int)numericUpDown2.Value;
+                int n = (int)task1grid.RowCount;
 
-                double[,] matrix = new double[dimension, dimension];
-                for (int i = 0; i < dimension; i++)
+                double[,] P_big = new double[n, n];
+                for (int i = 0; i < n; i++)
                 {
-                    for (int j = 0; j < dimension; j++)
+                    for (int j = 0; j < n; j++)
                     {
-                        matrix[j, i] = Convert.toDouble(task1grid[i, j].Value); //зчитування даних з матриці вхідної
+                        P_big[j, i] = Convert.toDouble(task1grid[i, j].Value); //зчитування даних з матриці вхідної
                     }
                 }
-                answers.Add(new double[dimension]); // після першого кроку
-                for (int i = 0; i < dimension; i++)
+                p_small.Add(new double[n]); // після першого кроку
+                for (int i = 0; i < n; i++)
                 {
-                    answers[0][i] = matrix[0, i]; //на першій ітерації ймовірності станів дорівнюють вхідній матриці
+                    p_small[0][i] = P_big[0, i]; //на першій ітерації ймовірності станів дорівнюють вхідній матриці
                 }
-                for (int i = 1; i < k; i++) // к - кількість ітерацій
+                for (int i = 1; i < countOfEtaps; i++) // кількість ітерацій
                 {
-                    answers.Add(new double[dimension]);
-                    for (int j = 0; j < dimension; j++)
+
+
+
+
+
+                    p_small.Add(new double[n]); // спочатку всі нулі
+                    for (int j = 0; j < n; j++)
                     {
-                        for (int l = 0; l < dimension; l++)
+                        for (int l = 0; l < n; l++)
                         {
-                            answers[i][j] += answers[i - 1][l] * matrix[l, j]; //просто перемножується дані попередніх відповідей та акумулюємо у стан даного вузла
+                            p_small[i][j] += p_small[i - 1][l] * P_big[l, j]; //просто перемножується дані попередніх відповідей та вхідну матрицю ймовірностей акумулюємо у стан даного вузла
                         }
-                        answers[i][j] = Math.Round(answers[i][j], 5); //для виведення
+                        p_small[i][j] = Math.Round(p_small[i][j], 5); //для виведення
                     }
+
+
+
+
                 }
+                //тут уже пораховані всі ймовірності
                 richTextBox1.Text = "";
-                for (int i = 0; i < k; i++)
+                for (int i = 0; i < countOfEtaps; i++)
                 {
                     richTextBox1.Text += "Ймовірності після кроку " + (i).ToString() + ":\n";
-                    for (int z = 0; z < dimension; z++)
+                    for (int z = 0; z < n; z++)
                     {
-                        richTextBox1.Text += $"P{z}({i})={ answers[i][z].ToString()}\n";
+                        richTextBox1.Text += $"P{z}({i})={ p_small[i][z].ToString()}\n";
                     }
                     richTextBox1.Text += "\n";
                 }
@@ -140,7 +150,7 @@ namespace queueing_theory
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var fileStream = openFileDialog.OpenFile();
-                string alldata = "";
+                string alldata;
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
                     alldata = reader.ReadToEnd();
